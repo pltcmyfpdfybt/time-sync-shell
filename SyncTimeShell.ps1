@@ -4,11 +4,11 @@
 /*                                                              */
 /*                                                              */
 /*               Create  : 19 August 2019 11:56:29              */
-/*             Update  : 26 August 2023 11:24:59                */
+/*             Update  : 12 September 2024 11:49:59             */
 /*                                                              */
 /****************************************************************/
 
-$tmp = Get-Content -LiteralPath '**append path to file with list of computers'
+$tmp = Get-Content -LiteralPath '**append path to file with win instance list'
 $tdlist = new-object 'System.Collections.Generic.List[string]'
 
 Function getTimeAll() {
@@ -85,34 +85,34 @@ Function gpUpdate() {
   }
  }
 
-$FR = Read-Host "TimeSyncShell`n1) get time all`n2) sync time of computer`n3) restart time service of computer`n4) get time of computer`n5) sync time all`n6) gpupdate /force`n"
+$FR = Read-Host "TimeSyncShell`n1) get time from all`n2) sync time on one`n3) restart time service`n4) get time frome one`n5) sync time on all`n6) gpupdate /force`n"
 switch ( $FR )  {
   1 
   { 
-    Write-Host "get time all"
+    Write-Host "get time from all"
     getTimeAll
   }
   2 
   {
-    Write-Host "sync time of computer"
-    $sto = Read-Host "Take name of computer or server"
+    Write-Host "sync time on one"
+    $sto = Read-Host "Write name of computer or server"
     syncTimeComputer($sto)
   }
   3 
   {
-    Write-Host "restart time service of computer"
-    $sto = Read-Host "Take name of computer or server"
+    Write-Host "restart time service"
+    $sto = Read-Host "Write name of computer or server"
     restartService($sto)
   }
   4
   {
-    Write-Host "get time of computer"
-    $sto = Read-Host "Take name of computer or server"
+    Write-Host "get time from one"
+    $sto = Read-Host "Write name of computer or server"
     getTimeComputer($sto)
   }
   5 
   {
-    Write-Host "Sync time all"
+    Write-Host "sync time on all"
     syncTimeAll
   }
   6 
